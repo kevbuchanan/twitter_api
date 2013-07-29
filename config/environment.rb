@@ -17,8 +17,15 @@ require 'logger'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
-
 require 'erb'
+
+require 'twitter'
+Twitter.configure do |config|
+  config.consumer_key = 'EN4yZeq3Sqit9JqGw8kcCQ'
+  config.consumer_secret = 'ntITuNaPNYGkqkdT2SeDdvIGRnYXmFBOzMfCeHX4L8'
+  config.oauth_token = '1374694152-RrBORE66KHMY4nY0NSaZsHv3WIPIcaXe6OjMN4W'
+  config.oauth_token_secret = '3XEaq48PZlZ3DGj3zKqMLLigubVzAmbdrkOPisd4E'
+end
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
