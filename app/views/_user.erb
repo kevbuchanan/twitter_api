@@ -1,0 +1,13 @@
+<h2>Recent Tweets from @<span id='user'><%=@user.user_name %></span></h2>
+<% if @load %>
+    <div id='loading'>
+    <img id="loading_gif" src='<%=@load%>'>
+  </div>
+<% else %>
+  <div id="tweets">
+    <% @tweets.each do |tweet| %>
+      <p><%= tweet.text %></p>
+    <% end %>
+  </div>
+<% end %>
+
