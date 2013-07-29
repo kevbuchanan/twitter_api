@@ -1,7 +1,9 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    if ($('#loading_gif').length > 0) {
+      var user = $('#user').text();
+      var url = "/fetch_tweets/"+ user;
+      $.get(url, function(response){
+          $('#loading').replaceWith($(response).filter('#tweets'));
+      });
+    }
 });
